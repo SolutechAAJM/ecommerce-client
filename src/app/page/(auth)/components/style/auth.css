@@ -1,0 +1,20 @@
+.cardAuth {
+  width: 33%;
+  height:75vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+  
+}
+.cardAuth h1 {
+  color: black;
+}
+.cardAuth p {
+  color: black;
+}
+.buttonAuth {
+    background: 00C0FF;
+    white:100px;
+    height:20px;
+}
