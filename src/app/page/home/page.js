@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from "next/navigation";
+import Login from "../(auth)/login/page";
 
 export const HomePage = () => {
 
@@ -10,8 +11,7 @@ export const HomePage = () => {
     }
  return (
     <>
-    hola soy homre
-    <button onClick={ongo}> irrrrr</button>
+    <Login></Login>
     </>
  )
 }
