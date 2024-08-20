@@ -4,8 +4,15 @@ import CardAuth from "../components/CardAuth";
 import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
 import "../components/style/auth.css";
+import { useTranslation } from "react-i18next";
+
+const ACTIONS = {
+  LOGIN: "login",
+  SIGNUP: "signup",
+};
 
 const Login = () => {
+  const { t } = useTranslation('common');
   return (
     <>
       <section className="logoReturn">
@@ -20,7 +27,7 @@ const Login = () => {
       </section>
       <section className="cardLogin">
         <div className="card25">
-          <CardAuth title={"Iniciar sesión"} action={"agsgas"} />
+          <CardAuth title={"Iniciar sesión"} action={ACTIONS.LOGIN} />
         </div>
       </section>
     </>

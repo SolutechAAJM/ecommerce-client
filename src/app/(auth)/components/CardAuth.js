@@ -1,5 +1,5 @@
 import { GoogleLogo } from "phosphor-react";
-import Button from "../../../components/Button";
+import Button from '@/components/Button';
 
 const ACTIONS = {
   LOGIN: "login",

@@ -29,7 +29,7 @@
     "src/app/page/(auth)/components/CardAuth.js",
     "src/app/page/(auth)/login/page.js",
     "src/app/page/(auth)/signup/page.js",
-    "src/app/components/navbar.js"
+    "src/components/navbar.js"
   ],
   "exclude": ["node_modules"]
 }

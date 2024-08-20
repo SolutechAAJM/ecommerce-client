@@ -4,8 +4,17 @@ import CardAuth from "../components/CardAuth";
 import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
 import "../components/style/auth.css";
+import { useTranslation } from "react-i18next";
+
+
+const ACTIONS = {
+  LOGIN: "login",
+  SIGNUP: "signup",
+};
 
 const Signup = () => {
+
+  const {t} = useTranslation('common');
   return (
     <div className="signup">
       <section>
@@ -30,7 +39,7 @@ const Signup = () => {
       </section>
       <div className="cardSignup">
         <div className="card75">
-          <CardAuth title={"Registrarse"} action={"signup"} />
+          <CardAuth title={"Registrarse"} action={ACTIONS.SIGNUP} />
         </div>
       </div>
     </div>
