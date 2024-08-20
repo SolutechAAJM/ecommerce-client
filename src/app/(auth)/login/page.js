@@ -1,10 +1,10 @@
 "use client";
 
-import CardAuth from "../components/CardAuth";
-import ReturnAuth from "../components/ReturnAuth";
+import CardAuth from "@/components/CardAuth";
+import ReturnAuth from "@/components/ReturnAuth";
 import Image from "next/image";
-import "../components/style/auth.css";
-import { useTranslation } from "react-i18next";
+import "@/components/style/auth.css";
+
 
 const ACTIONS = {
   LOGIN: "login",
@@ -12,7 +12,7 @@ const ACTIONS = {
 };
 
 const Login = () => {
-  const { t } = useTranslation('common');
+
   return (
     <>
       <section className="logoReturn">
