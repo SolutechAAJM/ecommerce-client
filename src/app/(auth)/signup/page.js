@@ -13,8 +13,6 @@ const ACTIONS = {
 
 const Signup = () => {
 
-  const {t} = useTranslation();
-
   return (
     <div className="signup">
       <section>
