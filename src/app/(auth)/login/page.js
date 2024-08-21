@@ -1,9 +1,9 @@
 "use client";
 
+import CardAuth from "@/components/CardAuth";
+import ReturnAuth from "@/components/ReturnAuth";
 import Image from "next/image";
-import "../components/style/auth.css";
-import CardAuth from "../components/CardAuth";
-import ReturnAuth from "../components/ReturnAuth";
+import "@/components/style/auth.css";
 
 
 const ACTIONS = {
