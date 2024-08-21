@@ -1,4 +1,3 @@
-
 import { useTranslation } from "../context/translationsContext";
 
 const LanguageSelector = () => {

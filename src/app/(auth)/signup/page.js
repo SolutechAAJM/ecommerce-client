@@ -13,7 +13,7 @@ const ACTIONS = {
 
 const Signup = () => {
 
-  const {t} = useTranslation();
+  // const {t} = useTranslation();
 
   return (
     <div className="signup">

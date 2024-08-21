@@ -1,5 +1,5 @@
 import { GoogleLogo } from "phosphor-react";
-import Button from '@/components/Button';
+import Button from '../../../components/Button';
 
 const ACTIONS = {
   LOGIN: "login",
@@ -29,10 +29,16 @@ const CardAuth = ({ title, action }) => {
         <hr />
       </div>
       <GoogleLogo className="googleIcon" size={32} />
-      <p>¿Aún no tienes cuenta? ¡Registrate ya!</p>
-      <div className="buttonAuth">
-        <Button title={"Registrarse"} />
-      </div>
+      {action === ACTIONS.LOGIN ? (
+        <>
+          <p>¿Aún no tienes cuenta? ¡Registrate ya!</p>
+          <div className="buttonAuth">
+            <Button title={"Registrarse"} />
+          </div>
+        </>
+      ) : (
+        <p>¿Ya tienes una cuenta? <a href="#">¡Iniciar sesión!</a></p>
+      )}
     </div>
   );
 };
