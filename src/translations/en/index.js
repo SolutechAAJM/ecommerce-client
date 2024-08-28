@@ -12,6 +12,7 @@ const en = {
         signup: {
             createAccount: "Create your account",
             createAccountDescription: "Create your account once and enjoy all services!",
+            createAccountInvitation: "Don't have an account? Register now!",
         },
     },
     messages: {

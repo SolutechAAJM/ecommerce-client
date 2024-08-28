@@ -1,12 +1,16 @@
 import { GoogleLogo } from "phosphor-react";
 import Button from '../../../components/Button';
 
+import { useLanguage } from "@/context/LanguageContext";
+
 const ACTIONS = {
   LOGIN: "login",
   SIGNUP: "signup",
 };
 
 const CardAuth = ({ title, action }) => {
+
+  const { l } = useLanguage();
   return (
     <div className="cardAuth">
       <h1>{title ?? "N/A "}</h1>
@@ -31,7 +35,7 @@ const CardAuth = ({ title, action }) => {
       <GoogleLogo className="googleIcon" size={32} />
       {action === ACTIONS.LOGIN ? (
         <>
-          <p>¿Aún no tienes cuenta? ¡Registrate ya!</p>
+          <p>{l("signup.createAccountInvitation")}</p>
           <div className="buttonAuth">
             <Button title={"Registrarse"} />
           </div>

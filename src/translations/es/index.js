@@ -12,6 +12,7 @@ const es = {
         signup: {
             createAccount: "Crea tu cuenta",
             createAccountDescription: "¡Crea tu cuenta una única vez y cónectate a todos los servicios!",
+            createAccountInvitation: "¿Aún no tienes cuenta? ¡Registrate ya!",
         },
     },
 
