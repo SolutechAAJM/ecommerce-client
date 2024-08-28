@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+}
+section {
+  display: flex;
+}
+.categories {
+  display: flex;
+}
+.category {
+  display: flex;
+}
+.searchOptions{
+    display: flex;
+}

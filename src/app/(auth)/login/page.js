@@ -1,9 +1,10 @@
 "use client";
 
-import CardAuth from "@/components/CardAuth";
-import ReturnAuth from "@/components/ReturnAuth";
+import CardAuth from "../components/CardAuth";
+import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
-import "@/components/style/auth.css";
+import "../components/style/auth.css";
+import NavBar from "@/components/NavBar";
 
 
 const ACTIONS = {
@@ -15,6 +16,7 @@ const Login = () => {
 
   return (
     <>
+    <NavBar></NavBar>
       <section className="logoReturn">
         <ReturnAuth />
         <Image

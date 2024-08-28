@@ -5,15 +5,13 @@ import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
 import "../components/style/auth.css";
 
-
 const ACTIONS = {
   LOGIN: "login",
   SIGNUP: "signup",
 };
 
 const Signup = () => {
-
-  const {t} = useTranslation();
+  // const {t} = useTranslation();
 
   return (
     <div className="signup">
@@ -37,6 +35,9 @@ const Signup = () => {
           </div>
         </header>
       </section>
+      <div className="returnSection">
+        <ReturnAuth />
+      </div>
       <div className="cardSignup">
         <div className="card75">
           <CardAuth title={"Registrarse"} action={ACTIONS.SIGNUP} />
