@@ -5,6 +5,7 @@ import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
 import "../components/style/auth.css";
 import NavBar from "@/components/NavBar";
+import { useLanguage } from "@/context/LanguageContext";
 
 
 const ACTIONS = {
@@ -13,6 +14,8 @@ const ACTIONS = {
 };
 
 const Login = () => {
+
+  const { t } = useLanguage();
 
   return (
     <>
@@ -29,7 +32,7 @@ const Login = () => {
       </section>
       <section className="cardLogin">
         <div className="card25">
-          <CardAuth title={"Iniciar sesión"} action={ACTIONS.LOGIN} />
+          <CardAuth title={t("labels.login")} action={ACTIONS.LOGIN} />
         </div>
       </section>
     </>

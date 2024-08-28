@@ -1,5 +1,5 @@
 
-export const enTranslations = {
+export const en = {
     labels:{
         login: "Login",
         logout: "Logout",

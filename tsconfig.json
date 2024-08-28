@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "baseUrl": ".",
   },
   "include": [
     "next-env.d.ts",
@@ -31,5 +32,6 @@
     "src/app/page/(auth)/signup/page.js",
     "src/components/navbar.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  
 }
