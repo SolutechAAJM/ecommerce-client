@@ -5,13 +5,15 @@ import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
 import "../components/style/auth.css";
 
+import { useLanguage } from "@/context/LanguageContext";
+
 const ACTIONS = {
   LOGIN: "login",
   SIGNUP: "signup",
 };
 
 const Signup = () => {
-  // const {t} = useTranslation();
+  const {l} = useLanguage();
 
   return (
     <div className="signup">
@@ -28,9 +30,9 @@ const Signup = () => {
             height={150}
           />
           <div>
-            <h1>Crea tu cuenta</h1>
+            <h1>{l("signup.createAccount")}</h1>
             <p>
-              ¡Crea tu cuenta una única vez y cónectate a todos los servicios!
+              {l("signup.createAccountDescription")}
             </p>
           </div>
         </header>

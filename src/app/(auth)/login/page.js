@@ -15,26 +15,43 @@ const ACTIONS = {
 
 const Login = () => {
 
-  const { t } = useLanguage();
+  const { l } = useLanguage();
 
   return (
     <>
     <NavBar></NavBar>
       <section className="logoReturn">
-        <ReturnAuth />
+        {/* <ReturnAuth />
         <Image
           className="logo"
           src="/Logo.png"
           alt="logo"
           width={130}
           height={110}
-        />
+        /> */}
       </section>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <section className="cardLogin">
         <div className="card25">
-          <CardAuth title={t("labels.login")} action={ACTIONS.LOGIN} />
+          <CardAuth title={l("login.title")} action={ACTIONS.LOGIN} />
         </div>
       </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+       <br /> <br />
+       <br />
+       <br />
+       
     </>
   );
 };
