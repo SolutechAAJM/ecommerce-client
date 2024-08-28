@@ -18,20 +18,37 @@ const Login = () => {
     <>
     <NavBar></NavBar>
       <section className="logoReturn">
-        <ReturnAuth />
+        {/* <ReturnAuth />
         <Image
           className="logo"
           src="/Logo.png"
           alt="logo"
           width={130}
           height={110}
-        />
+        /> */}
       </section>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <section className="cardLogin">
         <div className="card25">
           <CardAuth title={"Iniciar sesión"} action={ACTIONS.LOGIN} />
-        </div>
+        </div>  
       </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+       <br /> <br />
+       <br />
+       <br />
+       
     </>
   );
 };

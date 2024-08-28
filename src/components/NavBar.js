@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import MenuItem from "./MenuItem";
 import "./styles/NavBar.css";
 import {
   CaretDown,
@@ -10,53 +11,163 @@ import {
 } from "phosphor-react";
 
 const NavBar = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const categories = [
-    "Hombres",
-    "Mujeres",
-    "Niños",
-    "Accesorios",
-    "Tecnologia",
+    {
+      title: "Hombres",
+      data: [
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+      ],
+    },
+    {
+      title: "Mujeres",
+      data: [
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+      ],
+    },
+    {
+      title: "Niños",
+      data: [
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+      ],
+    },
+    {
+      title: "Hombres",
+      data: [
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+      ],
+    },
+    {
+      title: "Hombres",
+      data: [
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
+      ],
+    },
   ];
+  const handleCategoryClick = (category) => {
+    if (selectedCategory?.title === category.title) {
+      setSelectedCategory(null);
+    } else {
+      setSelectedCategory(category);
+    }
+  };
   return (
-    <nav>
-      <Image
-        className="logo"
-        src="/Logo.png"
-        alt="logo"
-        width={130}
-        height={110}
-      />
-      <div>
-        <div className="searchOptions">
-          <div>
-            <input />
-            <MagnifyingGlass size={32} />
+    <>
+      <nav>
+        <Image
+          className="logo"
+          src="/Logo.png"
+          alt="logo"
+          width={130}
+          height={110}
+        />
+        <div className="searchCategories">
+          <div className="searchOptions">
+            <div className="search">
+              <input placeholder="Buscar" />
+              <MagnifyingGlass size={30} />
+            </div>
+            <section className="options">
+              <div>
+                <Question size={32} />
+                <p>Ayuda</p>
+              </div>
+              <div>
+                <UserCircle size={32} />
+                <p>Mi cuenta</p>
+              </div>
+              <div>
+                <ShoppingCartSimple size={32} />
+                <p>Mi carrito</p>
+              </div>
+            </section>
           </div>
-          <section>
-            <div>
-              <Question size={32} />
-              <p>ayuda</p>
-            </div>
-            <div>
-              <UserCircle size={32} />
-              <p>Mi cuenta</p>
-            </div>
-            <div>
-              <ShoppingCartSimple size={32} />
-              <p>Mi carrito</p>
-            </div>
-          </section>
+          <div className="categories">
+            {categories.map((category, index) => (
+              <div className="category" key={index} onClick={() => handleCategoryClick(category)}>
+                <p>{category.title}</p>
+                <CaretDown size={20} />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="categories">
-          {categories.map((category, index) => (
-            <div className="category" key={index}>
-              <p>{category}</p>
-              <CaretDown size={32} />
+      </nav>
+      {selectedCategory && (
+        <div>
+          <section className="tablesCategories">
+          {selectedCategory.data.map((data, index) => (
+            <div className="menuItem" key={index}>
+              <MenuItem category={data} />
             </div>
           ))}
+        </section>
+        <div className="foot" />
         </div>
-      </div>
-    </nav>
+      )}
+    </>
   );
 };
 
