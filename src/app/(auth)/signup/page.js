@@ -6,14 +6,10 @@ import Image from "next/image";
 import "../components/style/auth.css";
 
 import { useLanguage } from "@/context/LanguageContext";
-
-const ACTIONS = {
-  LOGIN: "login",
-  SIGNUP: "signup",
-};
+import { ACTIONS } from "../components/Actions";
 
 const Signup = () => {
-  const {l} = useLanguage();
+  const { l } = useLanguage();
 
   return (
     <div className="signup">
@@ -42,7 +38,7 @@ const Signup = () => {
       </div>
       <div className="cardSignup">
         <div className="card75">
-          <CardAuth title={"Registrarse"} action={ACTIONS.SIGNUP} />
+          <CardAuth title={l("signup.register")} action={ACTIONS.SIGNUP} />
         </div>
       </div>
     </div>

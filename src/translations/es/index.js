@@ -1,3 +1,6 @@
+import next from "next";
+import { title } from "process";
+
 const es = {
     labels: {
         login: {
@@ -5,11 +8,14 @@ const es = {
             subtitle: "Iniciar sesión en su cuenta",
             forgotPassword: "¿Olvidó su contraseña?",
             logout: "Cerrar sesión",
-            register: "Registrarse",
             password: "Contraseña",
             email: "Correo electrónico",
+            login: "Iniciar sesión",
+            alreadyHaveAccount: "¿Ya tienes una cuenta?",
+            next: "Siguiente",
         },
         signup: {
+            register: "Registrarse",
             createAccount: "Crea tu cuenta",
             createAccountDescription: "¡Crea tu cuenta una única vez y cónectate a todos los servicios!",
             createAccountInvitation: "¿Aún no tienes cuenta? ¡Registrate ya!",

@@ -6,12 +6,8 @@ import Image from "next/image";
 import "../components/style/auth.css";
 import NavBar from "@/components/NavBar";
 import { useLanguage } from "@/context/LanguageContext";
+import { ACTIONS } from "../components/Actions";
 
-
-const ACTIONS = {
-  LOGIN: "login",
-  SIGNUP: "signup",
-};
 
 const Login = () => {
 

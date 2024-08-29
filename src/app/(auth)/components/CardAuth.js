@@ -2,11 +2,7 @@ import { GoogleLogo } from "phosphor-react";
 import Button from '../../../components/Button';
 
 import { useLanguage } from "@/context/LanguageContext";
-
-const ACTIONS = {
-  LOGIN: "login",
-  SIGNUP: "signup",
-};
+import { ACTIONS } from "./Actions";
 
 const CardAuth = ({ title, action }) => {
 
@@ -16,16 +12,16 @@ const CardAuth = ({ title, action }) => {
       <h1>{title ?? "N/A "}</h1>
       <div className="form">
         <div>
-          <p>Email</p>
-          <input type="text" placeholder="email" />
+          <p>{l("login.email")}</p>
+          <input type="text" placeholder={l("login.email")} />
         </div>
         <div>
-          <p>Password</p>
-          <input type="password" placeholder="password" />
+          <p>{l("login.password")}</p>
+          <input type="password" placeholder={l("login.password")} />
         </div>
       </div>
       <div className="buttonAuth">
-        <Button title={"Siguiente"} />
+        <Button title={l("login.next")} />
       </div>
       <div className="separation">
         <hr />
@@ -37,11 +33,11 @@ const CardAuth = ({ title, action }) => {
         <>
           <p>{l("signup.createAccountInvitation")}</p>
           <div className="buttonAuth">
-            <Button title={"Registrarse"} />
+            <Button title={l("signup.register")} />
           </div>
         </>
       ) : (
-        <p>¿Ya tienes una cuenta? <a href="#">¡Iniciar sesión!</a></p>
+        <p>{l('login.alreadyHaveAccount')} <a href="#">{l("login.login")}</a></p>
       )}
     </div>
   );

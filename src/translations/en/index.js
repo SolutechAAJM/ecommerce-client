@@ -1,3 +1,5 @@
+import next from "next";
+
 const en = {
     labels: {
         login: {
@@ -7,9 +9,11 @@ const en = {
             password: "Password",
             forgotPassword: "Forgot password?",
             login: "Login",
-            register: "Register",
+            alreadyHaveAccount: "Already have an account?",
+            next: "Next",
         },
         signup: {
+            register: "Register",
             createAccount: "Create your account",
             createAccountDescription: "Create your account once and enjoy all services!",
             createAccountInvitation: "Don't have an account? Register now!",
