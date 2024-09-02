@@ -22,7 +22,7 @@ const NavBar = () => {
         },
         {
           title: "Calzado",
-          data: ["Tenis", "Zapatos", "Botas"],
+          data: ["Tenis", "Zapatos", "Botas","Tenis", "Zapatos", "Botas","Tenis", "Zapatos", "Botas","Tenis", "Zapatos", "Botas"],
         },
         {
           title: "Ropa",
@@ -32,6 +32,7 @@ const NavBar = () => {
           title: "Calzado",
           data: ["Tenis", "Zapatos", "Botas"],
         },
+        
       ],
     },
     {
@@ -121,8 +122,8 @@ const NavBar = () => {
           className="logo"
           src="/Logo.png"
           alt="logo"
-          width={130}
-          height={110}
+          width={100}
+          height={100}
         />
         <div className="searchCategories">
           <div className="searchOptions">
@@ -147,10 +148,12 @@ const NavBar = () => {
           </div>
           <div className="categories">
             {categories.map((category, index) => (
-              <div className="category" key={index} onClick={() => handleCategoryClick(category)}>
+              <button key={index} onClick={() => handleCategoryClick(category)}>
+                <div className="category">
                 <p>{category.title}</p>
                 <CaretDown size={20} />
               </div>
+              </button>
             ))}
           </div>
         </div>
@@ -164,7 +167,9 @@ const NavBar = () => {
             </div>
           ))}
         </section>
+        <button onClick={() => setSelectedCategory(null)}>
         <div className="foot" />
+        </button>
         </div>
       )}
     </>

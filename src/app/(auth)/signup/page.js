@@ -25,7 +25,7 @@ const Signup = () => {
             src="/Logo.png"
             alt="logo"
             width={170}
-            height={150}
+            height={170}
           />
           <div>
             <h1>Crea tu cuenta</h1>
