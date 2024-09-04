@@ -160,7 +160,7 @@ const NavBar = () => {
       </nav>
       {selectedCategory && (
         <div>
-          <section className="tablesCategories">
+          <section className={`tablesCategories ${selectedCategory ? "active" : ""}`}>
           {selectedCategory.data.map((data, index) => (
             <div className="menuItem" key={index}>
               <MenuItem category={data} />

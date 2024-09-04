@@ -51,7 +51,7 @@ section {
   border-radius: 50px;
 }
 .search input:focus {
-  border: none;
+  outline: none;
 }
 .options {
   display: flex;
@@ -70,8 +70,12 @@ section {
   width: 100%;
   height: 60vh;
   background: rgba(255, 255, 255, 0.95);
-  margin-top: 20vh;
+  top: -40vh;
   padding: 20px;
+  transition: top 2s ease;
+}
+.tablesCategories.active {
+  top: 20vh;
 }
 .menuItem {
   width: 100%;
@@ -88,7 +92,6 @@ section {
   background: var(--lightBlue);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border: 1px solid black;
 }
 .image {
   border-top-left-radius: 10px;
@@ -108,7 +111,6 @@ section {
   background: var(--skyBlue);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  border: 1px solid black;
   overflow-y: hidden;
 }
 .itemData:hover {
