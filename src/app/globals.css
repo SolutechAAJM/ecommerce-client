@@ -22,3 +22,13 @@ button {
   border: 1px solid #adadad;
   cursor: pointer;
 }
+@keyframes showBottom {
+  from {
+    transform: translateY(-20vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
+}

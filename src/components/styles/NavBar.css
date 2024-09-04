@@ -70,12 +70,11 @@ section {
   width: 100%;
   height: 60vh;
   background: rgba(255, 255, 255, 0.95);
-  top: -40vh;
   padding: 20px;
-  transition: top 2s ease;
+  top: 20vh;
 }
 .tablesCategories.active {
-  top: 20vh;
+  animation: showBottom 0.5s ease forwards;
 }
 .menuItem {
   width: 100%;

@@ -162,7 +162,7 @@ const NavBar = () => {
         <div>
           <section className={`tablesCategories ${selectedCategory ? "active" : ""}`}>
           {selectedCategory.data.map((data, index) => (
-            <div className="menuItem" key={index}>
+            <div className="menuItem" key={index} onClick={() => setSelectedCategory(null)}>
               <MenuItem category={data} />
             </div>
           ))}
