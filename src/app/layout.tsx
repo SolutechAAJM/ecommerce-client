@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { TranslationProvider } from "@/context/translationsContext"; 
+import { LanguageProvider } from "@/context/LanguageContext";
 import LanguageSelector from '../components/LanguageSelector'
 
 import "./globals.css";
@@ -21,13 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TranslationProvider>
+        <LanguageProvider>
           <header>
-            <LanguageSelector />
+            {/* <LanguageSelector /> */}
           </header>
           <main>{children}</main>
-        </TranslationProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
 }
+

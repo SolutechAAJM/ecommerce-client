@@ -5,14 +5,13 @@ import ReturnAuth from "../components/ReturnAuth";
 import Image from "next/image";
 import "../components/style/auth.css";
 import NavBar from "@/components/NavBar";
+import { useLanguage } from "@/context/LanguageContext";
+import { ACTIONS } from "../components/Actions";
 
-
-const ACTIONS = {
-  LOGIN: "login",
-  SIGNUP: "signup",
-};
 
 const Login = () => {
+
+  const { l } = useLanguage();
 
   return (
     <>
@@ -30,8 +29,8 @@ const Login = () => {
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <section className="cardLogin">
         <div className="card25">
-          <CardAuth title={"Iniciar sesión"} action={ACTIONS.LOGIN} />
-        </div>  
+          <CardAuth title={l("login.title")} action={ACTIONS.LOGIN} />
+        </div>
       </section>
       <br />
       <br />

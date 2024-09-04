@@ -1,11 +1,14 @@
-
-import { useTranslation } from "../context/translationsContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 const LanguageSelector = () => {
-  // const { setLanguage } = useTranslation();
+  // const { setLanguage, language } = useLanguage();
+
+  // const handleLanguageChange = (event) => {
+  //   setLanguage(event.target.value);
+  // };
 
   // return (
-  //   <select onChange={(e) => setLanguage(e.target.value)} defaultValue="en">
+  //   <select onChange={handleLanguageChange} value={language}>
   //     <option value="en">English</option>
   //     <option value="es">Español</option>
   //   </select>
