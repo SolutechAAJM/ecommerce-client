@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: 0.8s ease;
 }
 button {
   background: none;
@@ -11,4 +12,23 @@ button {
   --blue: #00C0FF;
   --lightBlue: #92CDEA;
   --skyBlue: #E7F3F9;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #020403;
+  border-radius: 6px;
+  border: 1px solid #adadad;
+  cursor: pointer;
+}
+@keyframes showBottom {
+  from {
+    transform: translateY(-20vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0vh);
+    opacity: 1;
+  }
 }
