@@ -1,5 +1,3 @@
-import next from "next";
-
 const en = {
     labels: {
         login: {
