@@ -16,6 +16,7 @@
     "phosphor-react": "^1.4.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-pro-sidebar": "^1.1.0",
     "sass": "^1.77.8"
   },
   "devDependencies": {
