@@ -32,9 +32,13 @@ function ModalExample() {
                 onClose={closeModal}
                 onConfirm={handleConfirm}
                 onCancel={handleCancel}
-                width="400px"
-                height="250px"
+                width="70%"
+                height="60vh"
             >
+                <p>This is the modal content.</p>
+                <p>This is the modal content.</p>
+                <p>This is the modal content.</p>
+                <p>This is the modal content.</p>
                 <p>This is the modal content.</p>
             </Modal>
         </div>

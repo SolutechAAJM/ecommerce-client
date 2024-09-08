@@ -1,8 +1,13 @@
 :root {
     --confirm-button-color: #007bff;
+    --modal-padding: 2vh 2vw;
+    --button-padding: 0.8vh 1.5vw;
+    --border-radius: 0.5vh;
+    --font-size-title: 1.5rem;
+    --font-size-button: 1rem;
 }
 
-.modal-overlay {
+.modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,46 +18,48 @@
     justify-content: center;
     align-items: center;
     transition: opacity 0.3s ease-in-out;
-    opacity: 0;
     visibility: hidden;
+    z-index: 1000;
 }
 
-.modal-open {
+.modalOpen {
     opacity: 1;
     visibility: visible;
 }
 
-.modal-closed {
+.modalClosed {
     opacity: 0;
     visibility: hidden;
 }
 
-.modal-content {
+.modalContent {
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.1);
+    padding: var(--modal-padding);
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: auto;
+    width: 90vw; 
+    max-width: 35rem; 
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
-.modal-header {
+.modalHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 2vh;
 }
 
-.modal-title {
-    font-size: 1.5rem;
+.modalTitle {
+    font-size: var(--font-size-title);
     font-weight: 600;
     color: #333;
 }
 
-.modal-close-button {
+.modalCloseButton {
     background: none;
     border: none;
     cursor: pointer;
@@ -61,32 +68,61 @@
     justify-content: center;
 }
 
-.modal-body {
+.modalBody {
     flex: 1;
-    margin-bottom: 16px;
+    margin-bottom: 2vh;
+    overflow-y: auto;
 }
 
-.modal-footer {
+.modalFooter {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 1vw;
     margin-top: auto; 
 }
 
-.modal-button {
+.modalButton {
     background: none;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: var(--font-size-button);
     color: white;
+    transition: background-color 0.3s ease;
 }
 
-.modal-confirm-button {
+.modalButton:hover {
+    background-color: #0056b3;
+}
+
+.modalConfirmButton {
     background: var(--confirm-button-color);
 }
 
-.modal-cancel-button {
+.modalCancelButton {
     background: #6c757d;
+}
+
+
+@media (min-width: 768px) {
+    .modalContent {
+        width: 70vw;
+        max-width: 20rem;
+    }
+
+    .modalTitle {
+        font-size: 1.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .modalContent {
+        width: 50vw;
+        max-width: 35rem;
+    }
+
+    .modalTitle {
+        font-size: 2rem;
+    }
 }

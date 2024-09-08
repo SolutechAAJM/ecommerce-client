@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { X } from 'phosphor-react';
 import './styles/Modal.css'; 
 
-const Modal = forwardRef(({ open = false, title, onClose, onConfirm, onCancel, children, width = '80%', height = 'auto' }, ref) => {
+const Modal = forwardRef(({ open = false, title, onClose, onConfirm, onCancel, children, width = '80%', height = '80%' }, ref) => {
     const handleClose = () => {
         if (onClose) {
             onClose();
@@ -22,26 +22,26 @@ const Modal = forwardRef(({ open = false, title, onClose, onConfirm, onCancel, c
     };
 
     return (
-        <div className={`modal-overlay ${open ? 'modal-open' : 'modal-closed'}`}>
+        <div className={`modalOverlay ${open ? 'modalOpen' : 'modalClosed'}`}>
             <div 
-                className='modal-content' 
+                className='modalContent' 
                 style={{ width: width, height: height }}
                 ref={ref}
             >
-                <div className='modal-header'>
-                    <h2 className='modal-title'>{title}</h2>
-                    <button className='modal-close-button' onClick={handleClose}>
+                <div className='modalHeader'>
+                    <h2 className='modalTitle'>{title}</h2>
+                    <button className='modalCloseButton' onClick={handleClose}>
                         <X size={24} color="#333" />
                     </button>
                 </div>
-                <div className='modal-body'>
+                <div className='modalBody'>
                     {children}
                 </div>
-                <div className='modal-footer'>
-                <button className='modal-button modal-cancel-button' onClick={handleCancel}>
+                <div className='modalFooter'>
+                <button className='modalButton modalCancelButton' onClick={handleCancel}>
                         Cancelar
                     </button>
-                    <button className='modal-button modal-confirm-button' onClick={handleConfirm}>
+                    <button className='modalButton modalConfirmButton' onClick={handleConfirm}>
                         Aceptar
                     </button>
                     

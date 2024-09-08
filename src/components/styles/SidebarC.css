@@ -4,58 +4,58 @@
     right: 0;
     z-index: 20;
     height: 100vh;
-    border-left: 2px solid #e5e7eb;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 0.125rem solid #e5e7eb; 
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1); 
     background-color: #ffffff;
     transition: transform 0.3s ease-in-out;
 }
 
-.sidebar-open {
+.sidebarOpen {
     transform: translateX(0);
 }
 
-.sidebar-closed {
+.sidebarClosed {
     transform: translateX(100%);
 }
 
-.sidebar-fixed-width {
+.sidebarFixedWidth {
     width: 45%;
 }
 
-.sidebar-fullscreen {
+.sidebarFullscreen {
     width: 100vw; 
     height: 100vh; 
 }
 
-.sidebar-content {
-    height: calc(100% - 56px); 
+.sidebarContent {
+    height: calc(100% - 3.5rem);
     overflow-y: auto;
-    padding: 16px;
+    padding: 1rem; 
 }
 
-.sidebar-header {
+.sidebarHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    border-bottom: 2px solid #e5e7eb;
+    padding: 1rem;
+    border-bottom: 0.125rem solid #e5e7eb; 
     position: relative; 
 }
 
-.sidebar-title {
+.sidebarTitle {
     font-size: 1.25rem;
     font-weight: 600;
     color: #333;
 }
 
-.sidebar-header-buttons {
+.sidebarHeaderButtons {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem; 
 }
 
-.sidebar-fullscreen-button,
-.sidebar-close-button {
+.sidebarFullscreenButton,
+.sidebarCloseButton {
     background: none;
     border: none;
     cursor: pointer;

@@ -36,27 +36,27 @@ const SidebarC = forwardRef((props, ref) => {
         []
     );
 
-    const style = isFullScreen ? 'sidebar-fullscreen' : 'sidebar-normal';
-    const sidebarClassName = `${open ? 'sidebar-open' : 'sidebar-closed'} ${isFullScreen ? 'sidebar-fullscreen' : ''}`;
+    const style = isFullScreen ? 'sidebarFullscreen' : 'sidebarNormal';
+    const sidebarClassName = `${open ? 'sidebarOpen' : 'sidebarClosed'} ${isFullScreen ? 'sidebarFullscreen' : ''}`;
 
     return (
         <aside
             className={`sidebar ${sidebarClassName} ${className}`}
             aria-label='Sidebar'
         >
-            <div className='sidebar-header'>
-                <h2 className='sidebar-title'>{title}</h2>
-                <div className='sidebar-header-buttons'>
-                    <button className='sidebar-fullscreen-button' onClick={handleToggleFullScreen}>
+            <div className='sidebarHeader'>
+                <h2 className='sidebarTitle'>{title}</h2>
+                <div className='sidebarHeaderButtons'>
+                    <button className='sidebarFullscreenButton' onClick={handleToggleFullScreen}>
                         {isFullScreen ? <ArrowsIn size={24} color="#333" /> : <ArrowsOut size={24} color="#333" />}
                     </button>
-                    <button className='sidebar-close-button' onClick={handleClose}>
+                    <button className='sidebarCloseButton' onClick={handleClose}>
                         <X size={24} color="#333" />
                     </button>
                 </div>
             </div>
             <div
-                className='sidebar-content'
+                className='sidebarContent'
                 ref={bodyRef}
             >
                 <div className={style}>{children}</div>
