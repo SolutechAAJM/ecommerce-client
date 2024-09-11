@@ -1,6 +1,3 @@
-import next from "next";
-import { title } from "process";
-
 const es = {
     labels: {
         login: {
