@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import "./styles/NavBar.css";
 import {
   CaretDown,
+  CaretLeft,
+  CaretRight,
   MagnifyingGlass,
   Question,
   ShoppingCartSimple,
@@ -12,6 +14,46 @@ import {
 
 const NavBar = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const scrollContainerRef = useRef(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    let scrollInterval;
+
+    const startScrolling = () => {
+      scrollInterval = setInterval(() => {
+        if (scrollContainer) {
+          scrollContainer.scrollBy({ left: 1, behavior: "smooth" });
+        }
+      }, 20);
+    };
+
+    const stopScrolling = () => {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+      }
+    };
+
+    const restartScrolling = () => {
+      stopScrolling();
+      setTimeout(() => startScrolling(), 500);
+    };
+
+    if (selectedCategory) {
+      startScrolling();
+      scrollContainer.addEventListener("mouseenter", stopScrolling);
+      scrollContainer.addEventListener("mouseleave", startScrolling);
+    }
+
+    return () => {
+      clearInterval(scrollInterval);
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("mouseenter", stopScrolling);
+        scrollContainer.removeEventListener("mouseleave", startScrolling);
+      }
+    };
+  }, [selectedCategory]);
+
   const categories = [
     {
       title: "Hombres",
@@ -22,7 +64,20 @@ const NavBar = () => {
         },
         {
           title: "Calzado",
-          data: ["Tenis", "Zapatos", "Botas","Tenis", "Zapatos", "Botas","Tenis", "Zapatos", "Botas","Tenis", "Zapatos", "Botas"],
+          data: [
+            "Tenis",
+            "Zapatos",
+            "Botas",
+            "Tenis",
+            "Zapatos",
+            "Botas",
+            "Tenis",
+            "Zapatos",
+            "Botas",
+            "Tenis",
+            "Zapatos",
+            "Botas",
+          ],
         },
         {
           title: "Ropa",
@@ -32,7 +87,35 @@ const NavBar = () => {
           title: "Calzado",
           data: ["Tenis", "Zapatos", "Botas"],
         },
-        
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: [
+            "Tenis",
+            "Zapatos",
+            "Botas",
+            "Tenis",
+            "Zapatos",
+            "Botas",
+            "Tenis",
+            "Zapatos",
+            "Botas",
+            "Tenis",
+            "Zapatos",
+            "Botas",
+          ],
+        },
+        {
+          title: "Ropa",
+          data: ["Camisetas", "Buzos", "Chaquetas"],
+        },
+        {
+          title: "Calzado",
+          data: ["Tenis", "Zapatos", "Botas"],
+        },
       ],
     },
     {
@@ -150,9 +233,9 @@ const NavBar = () => {
             {categories.map((category, index) => (
               <button key={index} onClick={() => handleCategoryClick(category)}>
                 <div className="category">
-                <p>{category.title}</p>
-                <CaretDown size={20} />
-              </div>
+                  <p>{category.title}</p>
+                  <CaretDown size={20} />
+                </div>
               </button>
             ))}
           </div>
@@ -160,16 +243,31 @@ const NavBar = () => {
       </nav>
       {selectedCategory && (
         <div>
-          <section className={`tablesCategories ${selectedCategory ? "active" : ""}`}>
-          {selectedCategory.data.map((data, index) => (
-            <div className="menuItem" key={index} onClick={() => setSelectedCategory(null)}>
-              <MenuItem category={data} />
-            </div>
-          ))}
-        </section>
-        <button onClick={() => setSelectedCategory(null)}>
-        <div className="foot" />
-        </button>
+          <div className="tablesWrapper">
+            <button className="scrollButton" >
+              <CaretLeft size={32} />
+            </button>
+            <section
+              className={`tablesCategories ${selectedCategory ? "active" : ""}`}
+              ref={scrollContainerRef}
+            >
+              {selectedCategory.data.map((data, index) => (
+                <div
+                  className="menuItem"
+                  key={index}
+                  onClick={() => setSelectedCategory(null)}
+                >
+                  <MenuItem category={data} />
+                </div>
+              ))}
+            </section>
+            <button className="scrollButton" >
+              <CaretRight size={32} />
+            </button>
+          </div>
+          <button onClick={() => setSelectedCategory(null)}>
+            <div className="foot" />
+          </button>
         </div>
       )}
     </>

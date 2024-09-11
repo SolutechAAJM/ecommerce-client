@@ -23,7 +23,7 @@ const Signup = () => {
             src="/Logo.png"
             alt="logo"
             width={170}
-            height={170}
+            height={180}
           />
           <div>
             <h1>{l("signup.createAccount")}</h1>

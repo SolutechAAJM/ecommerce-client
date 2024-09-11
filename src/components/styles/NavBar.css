@@ -65,16 +65,45 @@ section {
 .options div p {
   border-bottom: 1px solid black;
 }
+.tablesWrapper {
+  position: fixed;
+  top: 20vh;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .tablesCategories {
   position: fixed;
   width: 100%;
   height: 60vh;
+  display: flex;
+  justify-content: space-around;
+  gap: 10%;
   background: rgba(255, 255, 255, 0.95);
   padding: 20px;
   top: 20vh;
+  scroll-behavior: smooth;
+  padding-left: 50px; 
+  padding-right: 50px;
 }
 .tablesCategories.active {
   animation: showBottom 0.5s ease forwards;
+}
+.scrollButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  width:50px;
+  height:50px;
+  margin:10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius:50px;
+  z-index: 1;
 }
 .menuItem {
   width: 100%;
@@ -82,7 +111,7 @@ section {
   justify-content: center;
 }
 .item {
-  width: 200px;
+  width: 250px;
 }
 .imageTitle {
   width: 100%;
