@@ -10,6 +10,7 @@ const SidebarC = forwardRef((props, ref) => {
     const handleClose = () => {
         if (onClose) {
             onClose();
+            
         }
     };
 

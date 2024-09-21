@@ -65,16 +65,51 @@ section {
 .options div p {
   border-bottom: 1px solid black;
 }
+.tablesWrapper {
+  position: fixed;
+  top: 20vh;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.between{
+  justify-content: space-between;
+}
+.end{
+  justify-content: flex-end;
+}
 .tablesCategories {
   position: fixed;
   width: 100%;
   height: 60vh;
+  display: flex;
+  justify-content: space-around;
+  gap: 10%;
   background: rgba(255, 255, 255, 0.95);
   padding: 20px;
   top: 20vh;
+  scroll-behavior: smooth;
+  padding-left: 50px; 
+  padding-right: 50px;
 }
 .tablesCategories.active {
   animation: showBottom 0.5s ease forwards;
+}
+.scrollButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  width:50px;
+  height:50px;
+  margin:10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius:50px;
+  z-index: 1;
 }
 .menuItem {
   width: 100%;
@@ -82,10 +117,11 @@ section {
   justify-content: center;
 }
 .item {
-  width: 200px;
+  width: 250px;
 }
 .imageTitle {
   width: 100%;
+  height:50px;
   display: flex;
   align-items: center;
   background: var(--lightBlue);
@@ -93,24 +129,31 @@ section {
   border-top-right-radius: 10px;
 }
 .image {
-  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .imageTitle div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
+.imageTitle div h2{
+  font-size:2rem;
+}
 .itemData {
   width: 100%;
   height: 300px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 15px;
   padding: 20px;
   background: var(--skyBlue);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow-y: hidden;
+}
+.itemData p{
+  font-size:1rem;
 }
 .itemData:hover {
   overflow-y: auto;
