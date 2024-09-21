@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import "./styles/NavBar.css";
@@ -14,56 +14,22 @@ import {
 
 const NavBar = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const scrollContainerRef = useRef(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
-    let scrollInterval;
-
-    const startScrolling = () => {
-      scrollInterval = setInterval(() => {
-        if (scrollContainer) {
-          scrollContainer.scrollBy({ left: 1, behavior: "smooth" });
-        }
-      }, 20);
-    };
-
-    const stopScrolling = () => {
-      if (scrollInterval) {
-        clearInterval(scrollInterval);
-      }
-    };
-
-    const restartScrolling = () => {
-      stopScrolling();
-      setTimeout(() => startScrolling(), 500);
-    };
-
-    if (selectedCategory) {
-      startScrolling();
-      scrollContainer.addEventListener("mouseenter", stopScrolling);
-      scrollContainer.addEventListener("mouseleave", startScrolling);
-    }
-
-    return () => {
-      clearInterval(scrollInterval);
-      if (scrollContainer) {
-        scrollContainer.removeEventListener("mouseenter", stopScrolling);
-        scrollContainer.removeEventListener("mouseleave", startScrolling);
-      }
-    };
-  }, [selectedCategory]);
-
+  const [visibleIndex, setVisibleIndex] = useState(0);
+  const itemsPerPage = 4;
   const categories = [
     {
       title: "Hombres",
       data: [
         {
           title: "Ropa",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Camisetas", "Buzos", "Chaquetas"],
         },
         {
           title: "Calzado",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: [
             "Tenis",
             "Zapatos",
@@ -81,18 +47,26 @@ const NavBar = () => {
         },
         {
           title: "Ropa",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Camisetas", "Buzos", "Chaquetas"],
         },
         {
           title: "Calzado",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Tenis", "Zapatos", "Botas"],
         },
         {
           title: "Ropa",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Camisetas", "Buzos", "Chaquetas"],
         },
         {
           title: "Calzado",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: [
             "Tenis",
             "Zapatos",
@@ -110,10 +84,14 @@ const NavBar = () => {
         },
         {
           title: "Ropa",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Camisetas", "Buzos", "Chaquetas"],
         },
         {
           title: "Calzado",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Tenis", "Zapatos", "Botas"],
         },
       ],
@@ -123,10 +101,14 @@ const NavBar = () => {
       data: [
         {
           title: "Ropa",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Camisetas", "Buzos", "Chaquetas"],
         },
         {
           title: "Calzado",
+          image:
+            "https://drive.google.com/uc?export=view&id=1SVL2FaTk0SdUhjoF39GC3yWysp5Az99L",
           data: ["Tenis", "Zapatos", "Botas"],
         },
       ],
@@ -191,13 +173,28 @@ const NavBar = () => {
       ],
     },
   ];
+
   const handleCategoryClick = (category) => {
     if (selectedCategory?.title === category.title) {
       setSelectedCategory(null);
     } else {
       setSelectedCategory(category);
+      setVisibleIndex(0);
     }
   };
+
+  const handleNext = () => {
+    if (visibleIndex + itemsPerPage < selectedCategory?.data.length) {
+      setVisibleIndex((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (visibleIndex > 0) {
+      setVisibleIndex((prev) => prev - 1);
+    }
+  };
+
   return (
     <>
       <nav>
@@ -230,8 +227,11 @@ const NavBar = () => {
             </section>
           </div>
           <div className="categories">
-            {categories.map((category, index) => (
-              <button key={index} onClick={() => handleCategoryClick(category)}>
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryClick(category)}
+              >
                 <div className="category">
                   <p>{category.title}</p>
                   <CaretDown size={20} />
@@ -243,27 +243,34 @@ const NavBar = () => {
       </nav>
       {selectedCategory && (
         <div>
-          <div className="tablesWrapper">
-            <button className="scrollButton" >
-              <CaretLeft size={32} />
-            </button>
+          <div
+            className={`tablesWrapper ${visibleIndex > 0 ? "between" : "end"}`}
+          >
+            {visibleIndex > 0 && (
+              <button className="scrollButton" onClick={handlePrev}>
+                <CaretLeft size={32} />
+              </button>
+            )}
             <section
               className={`tablesCategories ${selectedCategory ? "active" : ""}`}
-              ref={scrollContainerRef}
             >
-              {selectedCategory.data.map((data, index) => (
-                <div
-                  className="menuItem"
-                  key={index}
-                  onClick={() => setSelectedCategory(null)}
-                >
-                  <MenuItem category={data} />
-                </div>
-              ))}
+              {selectedCategory.data
+                .slice(visibleIndex, visibleIndex + itemsPerPage)
+                .map((data) => (
+                  <button
+                    className="menuItem"
+                    key={data.id}
+                    onClick={() => setSelectedCategory(null)}
+                  >
+                    <MenuItem category={data} />
+                  </button>
+                ))}
             </section>
-            <button className="scrollButton" >
-              <CaretRight size={32} />
-            </button>
+            {visibleIndex + itemsPerPage < selectedCategory.data.length && (
+              <button className="scrollButton" onClick={handleNext}>
+                <CaretRight size={32} />
+              </button>
+            )}
           </div>
           <button onClick={() => setSelectedCategory(null)}>
             <div className="foot" />

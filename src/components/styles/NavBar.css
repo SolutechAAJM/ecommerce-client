@@ -74,6 +74,12 @@ section {
   align-items: center;
   justify-content: space-between;
 }
+.between{
+  justify-content: space-between;
+}
+.end{
+  justify-content: flex-end;
+}
 .tablesCategories {
   position: fixed;
   width: 100%;
@@ -115,6 +121,7 @@ section {
 }
 .imageTitle {
   width: 100%;
+  height:50px;
   display: flex;
   align-items: center;
   background: var(--lightBlue);
@@ -122,24 +129,31 @@ section {
   border-top-right-radius: 10px;
 }
 .image {
-  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .imageTitle div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
+.imageTitle div h2{
+  font-size:2rem;
+}
 .itemData {
   width: 100%;
   height: 300px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 15px;
   padding: 20px;
   background: var(--skyBlue);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow-y: hidden;
+}
+.itemData p{
+  font-size:1rem;
 }
 .itemData:hover {
   overflow-y: auto;
