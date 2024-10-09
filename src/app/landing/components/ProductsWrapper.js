@@ -60,21 +60,29 @@ const ProductsWrapper = ({ products }) => {
           <motion.section
             key={visibleIndex}
             className="list"
-            initial={{ x: direction > 0 ? 250 : -250 }}
+            initial={{ x: direction > 0 ? 200 : -200 }}
             animate={{ x: 0 }}
-            exit={{ x: direction > 0 ? -250 : 250 }}
+            exit={{ x: direction > 0 ? -200 : 200 }} // Animación de salida del contenedor general
             transition={{ duration: 0.2 }}
             custom={direction}
           >
             {products.products
               .slice(visibleIndex, visibleIndex + itemsPerPage)
               .map((product) => (
-                <div key={product.id} className="product">
+                <motion.div
+                  key={product.id}
+                  className="product"
+                  initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }} // Animación de salida individual
+                  transition={{ duration: 0.2 }}
+                >
                   <Product product={product} />
-                </div>
+                </motion.div>
               ))}
           </motion.section>
         </AnimatePresence>
+
         {visibleIndex + itemsPerPage < products.products.length && (
           <button className="scrollButton" onClick={handleNext}>
             <CaretRight size={32} />
