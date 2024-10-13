@@ -94,30 +94,19 @@ const CardAuth = ({ title, action }) => {
         role: role
       })  
       
-      if(response.data){
-        /*const token = response.data.token;      
-        localStorage.setItem('token', token)*/
-        toast.success(response.data.message)
-        router.push('/landing') 
+      if(response.status === 201) {
+        const token = response.data.token;      
+        localStorage.setItem('token', token) 
+        toast.success(response.data.message)   
+      }
+
+      if(response.status === 400) {
+        toast.error(response.data.message.message[0]);
         return
       }
-      console.log(response.data.token)
 
     } catch (error) {
-      if (error.response) {
-        if(error.response.status === 400){
-          const errorMessage = error.response.data.message.message
-          errorMessage.forEach((msg) => {
-            toast.error(msg)
-          })
-        } else {
-          toast.error('Ocurrió un error en el registro. Inténtalo de nuevo.')
-        }
-             
-      } else {      
-        console.error('Error en el proceso de registro', error)      
-        toast.error('Error en el proceso, por favor intenta nuevamente.')    
-      } 
+      toast.error('Error en el proceso de registro');
     }
   }
 
