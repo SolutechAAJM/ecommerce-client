@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { X } from 'phosphor-react';
+import PropTypes from "prop-types";
 import './styles/Modal.css'; 
 
 const Modal = forwardRef(({ open = false, title, onClose, onConfirm, onCancel, children, width = '80%', height = '80%' }, ref) => {
@@ -50,5 +51,19 @@ const Modal = forwardRef(({ open = false, title, onClose, onConfirm, onCancel, c
         </div>
     );
 });
+
+Modal.propTypes = {
+    open: PropTypes.bool,
+    title: PropTypes.string,
+    onClose: PropTypes.func,
+    onConfirm: PropTypes.func,
+    onCancel: PropTypes.func,
+    children: PropTypes.node,
+    width: PropTypes.string,
+    height: PropTypes.string 
+};
+
+
+Modal.displayName = 'Modal';
 
 export default Modal;

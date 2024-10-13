@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import "./styles/NavBar.css";
@@ -15,7 +15,29 @@ import {
 const NavBar = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [visibleIndex, setVisibleIndex] = useState(0);
-  const itemsPerPage = 4;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 600) {
+        setItemsPerPage(1);
+      } else if (screenWidth < 900) {
+        setItemsPerPage(2);
+      } else if (screenWidth < 1200) {
+        setItemsPerPage(3);
+      } else {
+        setItemsPerPage(4);
+      }
+    };
+
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+
+    return () => {
+      window.removeEventListener("resize", updateItemsPerPage);
+    };
+  }, [])
   const categories = [
     {
       title: "Hombres",

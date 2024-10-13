@@ -6,7 +6,7 @@ import { Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 
 const SIDEBAR_TITLE = 'Sidebar Title';
 
-export const SidebarExample = () => {
+ const SidebarExample = () => {
 
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const sidebarRef = useRef(null);
