@@ -7,7 +7,12 @@ const urlBase = config.SERVER;
 export const getResponse = async (url, options = {}) => {
   try {
     await getToken();
-    const response = await axios.get(`${urlBase}${url}`, options);
+    const response = await axios.get(
+      `${urlBase}${url}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
     return response;
   } catch (error) {
     return error;

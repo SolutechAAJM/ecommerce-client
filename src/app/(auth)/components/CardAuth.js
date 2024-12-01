@@ -10,7 +10,7 @@ import Button from '../../../components/Button';
 
 import { useLanguage } from "@/context/LanguageContext";
 import { ACTIONS } from "./Actions";
-import { config } from "process";
+
 
 const CardAuth = ({ title, action }) => {
 
