@@ -8,6 +8,7 @@ nav {
   align-items: center;
   border-bottom: 1px solid black;
   background: white;
+  z-index:2;
 }
 .searchCategories {
   width: 100%;
@@ -73,6 +74,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index:2;
 }
 .between{
   justify-content: space-between;
@@ -96,20 +98,6 @@ section {
 }
 .tablesCategories.active {
   animation: showBottom 0.5s ease forwards;
-}
-.scrollButton {
-  background-color: rgba(0, 0, 0, 0.5);
-  width:50px;
-  height:50px;
-  margin:10px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius:50px;
-  z-index: 1;
 }
 .menuItem {
   width: 100%;
@@ -165,4 +153,5 @@ section {
   height: 20vh;
   opacity: 30%;
   background: linear-gradient(to bottom, var(--blue), var(--skyBlue));
+  z-index:3;
 }

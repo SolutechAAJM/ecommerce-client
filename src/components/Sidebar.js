@@ -1,5 +1,6 @@
 import { useRef, useImperativeHandle, forwardRef, useState } from 'react';
 import { X, ArrowsOut, ArrowsIn } from 'phosphor-react';
+import PropTypes from "prop-types";
 import './styles/SidebarC.css'; 
 
 const SidebarC = forwardRef((props, ref) => {
@@ -65,5 +66,16 @@ const SidebarC = forwardRef((props, ref) => {
         </aside>
     );
 });
+
+SidebarC.propTypes = {
+    open: PropTypes.bool,
+    fullScreen: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onClose: PropTypes.func,
+    title: PropTypes.string,
+};
+
+SidebarC.displayName = 'SidebarC';
 
 export default SidebarC;
